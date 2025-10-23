@@ -7,10 +7,14 @@ require_once 'class/CartEntity.php';
 function addProduct(Cart $cart, Product $product) 
 {
     $cart->addProduct($product);
-
 }
 
 function deleteProduct(Cart $cart, Product $product) 
 {
     $cart->deleteProduct($product);
+}
+
+function applyDiscountProduct(Cart $cart, float $discountPercentage) 
+{
+    $cart->applyDiscount($discountPercentage);
 }

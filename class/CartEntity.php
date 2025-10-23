@@ -31,10 +31,19 @@ class Cart
         if ($p->getName() === $product->getName() && $p->getPrice() === $product->getPrice()) 
             {
             unset($this->products[$index]);
-            
+
             $this->products = array_values($this->products);
             break;
             }
+        }
+    }
+
+    public function applyDiscount(float $discountPercentage) 
+    {
+        foreach ($this->products as $product) 
+        {
+            $newPrice = $product->getPrice() * (1 - $discountPercentage / 100);
+            $product->setPrice($newPrice);
         }
     }
 }

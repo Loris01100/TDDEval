@@ -1,1 +1,1 @@
-{"version":2,"defects":{"Test_addProduct_Cafe_Success::testAddProductToCart":8},"times":{"Test_addProduct_Cafe_Success::testAddProductToCart":0.002,"test_deleteProduct_cart_success::testDeleteProductFromCart":0}}
+{"version":2,"defects":{"Test_addProduct_Cafe_Success::testAddProductToCart":8,"Test_ApplyDiscount_Cart_Success::testApplyDiscountToCart":7},"times":{"Test_addProduct_Cafe_Success::testAddProductToCart":0.002,"test_deleteProduct_cart_success::testDeleteProductFromCart":0,"Test_ApplyDiscount_Cart_Success::testApplyDiscountToCart":0}}
