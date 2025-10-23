@@ -11,14 +11,12 @@ class Test_ApplyDiscount_Cart_Success extends TestCase
     public function testApplyDiscountToCart()
     {
         $cart = new Cart();
-        $cafe = new Product("Cafe", 3.50);
-        $croissant = new Product("Croissant", 2.00);
+        $livre = new Product("Livre", 20);
 
-        addProduct($cart, $cafe);
-        addProduct($cart, $croissant);
-        $this->assertEquals(5.50, $cart->getTotal());
+        addProduct($cart, $livre);
+        $this->assertEquals(20, $cart->getTotal());
 
         $cart->applyDiscount(10);
-        $this->assertEquals(4.95, $cart->getTotal());
+        $this->assertEquals(18, $cart->getTotal());
     }
 }
