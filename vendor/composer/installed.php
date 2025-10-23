@@ -1,20 +1,20 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'loris/tddeval',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1991f803ca03ca21f96e9fdbcc3251c516eb35d6',
-        'type' => 'library',
+        'reference' => '05cac6e6ea505ae31fbfa9e3fc5b25fe257150cf',
+        'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'loris/tddeval' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1991f803ca03ca21f96e9fdbcc3251c516eb35d6',
-            'type' => 'library',
+            'reference' => '05cac6e6ea505ae31fbfa9e3fc5b25fe257150cf',
+            'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,

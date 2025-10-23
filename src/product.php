@@ -18,3 +18,13 @@ function applyDiscountProduct(Cart $cart, float $discountPercentage)
 {
     $cart->applyDiscount($discountPercentage);
 }
+
+function saveCartToFile(Cart $cart, string $filename) 
+{
+    $cart->saveCartOnFile($filename);
+}
+
+function loadCartFromFile(Cart $cart, string $filename): void
+{
+    $cart->loadFromFile($filename);
+}

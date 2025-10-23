@@ -1,10 +1,18 @@
 <?php
 
 require_once 'class/ProductEntity.php';
+require_once 'class/FileStorageEntity.php';
 
 class Cart 
 {
     private $products = [];
+    private $storage;
+
+    public function __construct($storage = null)
+    {
+        $this->storage = $storage;
+    }
+
 
     //fonction pour ajouter un produit dans un panier, le produit est ajouter dans un tableau de produits
     public function addProduct(Product $product) 
@@ -58,6 +66,9 @@ class Cart
 
     public function saveCartOnFile($filename) 
     {
+        if ($this->storage === null) {
+            throw new \RuntimeException("Aucun storage n'a été fourni au Cart.");
+        }
         $data = [];
         foreach ($this->products as $product) 
         {
@@ -66,6 +77,20 @@ class Cart
                 'price' => $product->getPrice()
             ];
         }
-        file_put_contents($filename, json_encode($data));
+        $this->storage->save($filename, json_encode($data));
+    }
+
+    public function loadFromFile(string $filename): void
+    {
+        if ($this->storage === null) {
+            throw new \RuntimeException("Aucun storage n'a été fourni au Cart.");
+        }
+        $items = $this->storage->load($filename);
+        $this->products = [];
+        if (is_array($items)) {
+            foreach ($items as $item) {
+                $this->products[] = new Product($item['name'], (float)$item['price']);
+            }
+        }
     }
 }
