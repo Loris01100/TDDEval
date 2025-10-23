@@ -10,6 +10,7 @@ class Cart
     public function addProduct(Product $product) 
     {
         $this->products[] = $product;
+        $this->addExceptionOnProduct($product);
     }
 
     //fonction pour obtenir le total du panier
@@ -45,5 +46,26 @@ class Cart
             $newPrice = $product->getPrice() * (1 - $discountPercentage / 100);
             $product->setPrice($newPrice);
         }
+    }
+
+    public function addExceptionOnProduct(Product $product) 
+    {
+        if ($product->getPrice() < 0) 
+        {
+            throw new InvalidPriceError("Le prix du produit ne peut pas être négatif.");
+        }
+    }
+
+    public function saveCartOnFile($filename) 
+    {
+        $data = [];
+        foreach ($this->products as $product) 
+        {
+            $data[] = [
+                'name' => $product->getName(),
+                'price' => $product->getPrice()
+            ];
+        }
+        file_put_contents($filename, json_encode($data));
     }
 }
